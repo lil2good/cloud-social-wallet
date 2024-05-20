@@ -4,4 +4,4 @@ export type Config = {
     rpc: string
 }
 
-export type Type = 'sms' | 'google' | 'facebook'
+export type Provider = 'sms' | 'google' | 'facebook'
