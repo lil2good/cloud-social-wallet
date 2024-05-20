@@ -1,0 +1,10 @@
+{
+  "juno": {
+    "name": "JUNO",
+    "token": "ujuno"
+  },
+  "ryze": {
+    "name": "RYZE",
+    "token": "uryzex"
+  }
+}
