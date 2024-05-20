@@ -1,4 +1,4 @@
-# Cloud Social Wallet
+# Cloud Social Wallet Reactjs SDK
 
 Usage:
 ```js
