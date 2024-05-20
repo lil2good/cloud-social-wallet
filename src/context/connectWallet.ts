@@ -1,15 +1,13 @@
 import React, {createContext} from "react";
+import {Type} from "../types/config.ts";
 
 const ConnectWalletContext = createContext({
     address: "",
     client: undefined,
     wallet: undefined,
-    login: (type: string) => {
-        return type;
-    },
-    logout: () => {
-        return false;
-    }
+    // @ts-ignore
+    login: (type: Type):void => {},
+    logout: ():void => {}
 })
 
 export function useWallet() {

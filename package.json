@@ -2,7 +2,7 @@
   "name": "cloud-social-wallet",
   "private": false,
   "description": "Cloud social wallet for single click login",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",

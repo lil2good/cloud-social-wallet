@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import { toUtf8 } from "@cosmjs/encoding";
 import {DirectSecp256k1Wallet} from "@cosmjs/proto-signing";
 import {SigningCosmWasmClient} from "@cosmjs/cosmwasm-stargate";
-import {Config} from "../types/config.ts";
+import {Config, Type} from "../types/config.ts";
 
 const getClient = async (rpc: string,key = '') => {
     if(key.length > 0) {
@@ -88,7 +88,7 @@ const useConnectWallet = ({config}:{config: Config}) => {
         return () => window.removeEventListener("message", handler)
     }, [])
 
-    const login = (type:string ) => {
+    const login = (type:Type ) => {
         const namespace = {
             'sms': '/sms',
             'google': '/login/federated/google',
@@ -101,7 +101,6 @@ const useConnectWallet = ({config}:{config: Config}) => {
         if (window.focus()) {
             newWindow?.focus()
         }
-        return false;
     }
     const logout = () => {
         Cookie.set("cookie", "");
