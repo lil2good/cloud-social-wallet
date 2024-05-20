@@ -6,7 +6,7 @@ const ConnectWalletContext = createContext({
     client: undefined,
     wallet: undefined,
     // @ts-ignore
-    login: (type: Provider):void => {},
+    login: (provider: Provider):void => {},
     logout: ():void => {}
 })
 

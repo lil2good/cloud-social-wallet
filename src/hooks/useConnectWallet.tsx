@@ -88,12 +88,12 @@ const useConnectWallet = ({config}:{config: Config}) => {
         return () => window.removeEventListener("message", handler)
     }, [])
 
-    const login = (type:Provider ) => {
+    const login = (provider:Provider ) => {
         const namespace = {
             'sms': '/sms',
             'google': '/login/federated/google',
             'facebook': '/login/federated/facebook',
-        }[type]
+        }[provider]
         const url = `${config.backend_url}${namespace}`;
         const newWindow=window.open(url,'name','height=600,width=600');
         newWindow?.postMessage(JSON.stringify({obj: window}),'*')
