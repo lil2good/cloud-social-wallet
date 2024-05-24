@@ -1,5 +1,6 @@
 
 export type Config = {
     backend_url: string,
-    rpc: string
+    rpc: string,
+    prefix: string,
 }

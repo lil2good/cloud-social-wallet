@@ -6,13 +6,13 @@ import {DirectSecp256k1Wallet} from "@cosmjs/proto-signing";
 import {SigningCosmWasmClient} from "@cosmjs/cosmwasm-stargate";
 import {Config} from "../types/config.ts";
 
-const getClient = async (rpc: string,key = '') => {
+const getClient = async (config: Config,key = '') => {
     if(key.length > 0) {
         try{
             const privateKey = toUtf8(key);
-            const wallet = await DirectSecp256k1Wallet.fromKey(privateKey, 'juno');
+            const wallet = await DirectSecp256k1Wallet.fromKey(privateKey, config.prefix ?? 'juno');
             const client =  await SigningCosmWasmClient.connectWithSigner(
-                rpc,
+                config.rpc,
                 wallet
             )
             return{
@@ -39,7 +39,7 @@ const useConnectWallet = ({config}:{config: Config}) => {
     useEffect(() => {
         socket.on("getTokenRes", (msg) => {
             if(msg.success && socket.id === msg.id) {
-                getClient(config.rpc,msg.token).then((cli) => {
+                getClient(config,msg.token).then((cli) => {
                     // @ts-ignore
                     setClient(cli.client);
                     // @ts-ignore
