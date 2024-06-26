@@ -2,12 +2,12 @@
   "name": "cloud-social-wallet",
   "private": false,
   "description": "Cloud social wallet for single click login",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "keywords": [
-      "wallet", "blocksdev", "social-login", "single-click-loginn"
+      "wallet", "blocksdev", "social-login", "single-click-login"
   ],
   "exports": {
     ".": {
