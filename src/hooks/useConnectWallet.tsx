@@ -10,7 +10,7 @@ const getClient = async (config: Config,key = '') => {
     if(key.length > 0) {
         try{
             const privateKey = toUtf8(key);
-            const wallet = await DirectSecp256k1Wallet.fromKey(privateKey, config.prefix ?? 'juno');
+            const wallet = await DirectSecp256k1Wallet.fromKey(privateKey, config.prefix ?? 'loop');
             const client =  await SigningCosmWasmClient.connectWithSigner(
                 config.rpc,
                 wallet
@@ -36,6 +36,7 @@ const useConnectWallet = ({config}:{config: Config}) => {
         transports: ["websocket"],
         withCredentials: true
     });
+    console.log("====config====",config)
     useEffect(() => {
         socket.on("getTokenRes", (msg) => {
             if(msg.success && socket.id === msg.id) {
@@ -88,13 +89,14 @@ const useConnectWallet = ({config}:{config: Config}) => {
         return () => window.removeEventListener("message", handler)
     }, [])
 
-    const login = (provider:'sms' | 'google' | 'facebook' | 'twitter' | 'telegram' ) => {
+    const login = (provider:'sms' | 'google' | 'facebook' | 'twitter' | 'telegram' | 'auth' ) => {
         const namespace = {
             'sms': '/sms',
             'google': '/login/federated/google',
             'facebook': '/login/federated/facebook',
             'twitter': '/login/federated/twitter',
             'telegram': '/login/federated/telegram',
+            'auth': '/login/auth',
         }[provider]
         const url = `${config.backend_url}${namespace}`;
         const newWindow=window.open(url,'name','height=600,width=600');
