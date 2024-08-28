@@ -1,3 +1,4 @@
+//@ts-nocheck
 import Cookie from "js-cookie";
 import {useEffect, useState,useRef} from "react";
 import io from "socket.io-client";
@@ -11,9 +12,16 @@ const getClient = async (config: Config,key = '') => {
         try{
             const privateKey = toUtf8(key);
             const wallet = await DirectSecp256k1Wallet.fromKey(privateKey, config.prefix ?? 'loop');
+            //@ts-ignore
             const client =  await SigningCosmWasmClient.connectWithSigner(
                 config.rpc,
-                wallet
+                wallet,
+                {
+                    gasPrice:{
+                        amount: 0.03,
+                        denom: "upoa"
+                    }
+                }
             )
             return{
                 wallet,
