@@ -88,8 +88,8 @@ const useConnectWallet = ({config}:{config: Config}) => {
         const handler = (event:any) => {
             if (event.data.address) {
                 setAddress(event.data.address)
-                Cookie.set("cookie", event.data.cookie);
-                Cookie.set("address", event.data.address);
+                Cookie.set("cookie", event.data.cookie,{domain: ".loop.fans"});
+                Cookie.set("address", event.data.address,{domain: ".loop.fans"});
                 getToken();
             }
         };
