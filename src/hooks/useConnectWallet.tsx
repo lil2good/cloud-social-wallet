@@ -115,8 +115,8 @@ const useConnectWallet = ({config}:{config: Config}) => {
         }
     }
     const logout = () => {
-        Cookie.set("cookie", "");
-        Cookie.set("address", "");
+        Cookie.set("cookie", "",{domain: ".loop.fans"});
+        Cookie.set("address", "",{domain: ".loop.fans"});
         setAddress(undefined)
     }
 
