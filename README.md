@@ -31,6 +31,7 @@ function WalletApp() {
                     <button onClick={logout}>Disconnect</p>
                 </> : <>
                     <button onClick={() => login('google')}>Google Login</button>
+                     <button onClick={() => login('sms')}>SMS</button>
                 </>
             }
         </>
