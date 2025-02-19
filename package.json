@@ -1,5 +1,5 @@
 {
-  "name": "cloud-social-wallet",
+  "name": "@lil2good/cloud-social-wallet",
   "private": false,
   "description": "Cloud social wallet for single click login",
   "version": "1.0.25",
@@ -38,6 +38,7 @@
     "@cosmjs/proto-signing": "^0.32.4",
     "@types/node": "^20.12.12",
     "classnames": "^2.5.1",
+    "cloud-wallet": "https://github.com/shoaib-blocksdev/cloud-wallet",
     "js-cookie": "^3.0.5",
     "socket.io-client": "^4.7.5"
   },
