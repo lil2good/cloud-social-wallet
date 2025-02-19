@@ -5,7 +5,7 @@ const ConnectWalletContext = createContext({
     client: undefined,
     wallet: undefined,
     // @ts-ignore
-    login: (provider: 'sms' | 'google' | 'facebook' | 'twitter' | 'telegram'):void => {},
+    login: (provider: 'sms' | 'google' | 'facebook' | 'twitter' | 'telegram' | 'auth'):void => {},
     logout: ():void => {}
 })
 
